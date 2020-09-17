@@ -6,67 +6,57 @@
 /*   By: lflint <lflint@student.21-school.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 19:09:00 by lflint            #+#    #+#             */
-/*   Updated: 2020/09/16 19:20:48 by lflint           ###   ########.fr       */
+/*   Updated: 2020/09/17 14:26:11 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_print_comb2(void)
+#include <unistd.h>
+
+void	ft_putchar(char c)
 {
+	write(1, &c, 1);
+}
 
-char a1 = '0';
-char a2 = '0';
-char b1 = '0';
-char b2 = '0';
+void	numb(int num)
+{
+	int a;
+	int b;
 
-	while (a1<= '9')
+	if (num > 10)
 	{
-		while (a2 <= '9')
-		{
-			while (b1 <= '9')
-			{
-				while (b2 <= '9')
-				{
-					write(1, &a1, 1);
-					write(1, &a2, 1);
-					write(1, " ", 1);
-					write(1, &b1, 1);
-					write(1, &b2, 1);
-					write(1, ", ", 2);
-				}
-				b1++;
-			}
-			if (a2 =='9')
-			{
-				a2 = '0';
-			} else a2++;	
-		}
-		a1++;
-		if (a1 == '9' && a2 == '8' && b1 == '9' && b2 == '9') break;
+		a = num / 10;
+		b = num % 10;
+		ft_putchar(a + 48);
+		ft_putchar(b + 48);
 	}
-}	
-/*
-	for (char a1 = '0'; a1 <= '9'; a1++)
+	else
 	{
-		for (char a2 = '0'; a2 <= '9'; a2++)
-		{
-			for (char b1 = '0'; b1 <= '9'; b1++)
-			{
-				for (char b2 = '0'; b2 <= '9'; b2++)
-				{
-					write(1, &a1, 1);
-					write(1, &a2, 1);
-					write(1, " ", 1);
-					write(1, &b1, 1);
-					write(1, &b2, 1);
-					write(1, ", ", 2);
-				}
-			}
-		}
+		ft_putchar('0');
+		ft_putchar(num + 48);
 	}
 }
-*/
-int main()
 
+void	ft_print_comb2(void)
 {
-    ft_print_comb2();
+	int a;
+	int b;
+
+	a = 0;
+	while (a <= 99)
+	{
+		b = a + 1;
+		while (b <= 99)
+		{
+			numb(a);
+			ft_putchar(' ');
+			numb(b);
+			if (a < 98 || b < 99)
+			{
+				ft_putchar(',');
+				ft_putchar(' ');
+			}
+			b++;
+		}
+		a++;
+	}
 }
