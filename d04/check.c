@@ -1,31 +1,34 @@
-//#include "ex00/ft_strcpy.c"
+#include "ex00/ft_strcpy.c"
 //#include "ex01/ft_strncpy.c"
 //#include "ex02/ft_str_is_alpha.c"
 //#include "ex03/ft_str_is_numeric.c"
 //#include "ex04/ft_str_is_lowercase.c"
 //#include "ex05/ft_str_is_uppercase.c"
 //#include "ex06/ft_str_is_printable.c"
-#include "ex07/ft_strupcase.c"
+//#include "ex07/ft_strupcase.c"
 #include <unistd.h>
 #include <stdio.h>
 
+/*
 void	strprnt(char *str)
 {
 	while (*str)
 		write(1, str++, 1);
 }
+*/
 
+/*
 int     main(void)
 {
-    /*
+    
     char *a = "Hello";
     char dst[100];
     char *dest;                                 //ft_strcpy
     dest = dst;
     ft_strcpy(dest, a);
-    strprnt(dest);
-    */
-
+    printf("%s", dest);
+    
+*/
     
 
     
@@ -89,9 +92,11 @@ int     main(void)
     printf("%d\n", d);
     */
 
+    /*
     char *c = "asdasd13123___ZXCASD";
     ft_strupcase(c);
     printf("%s", c);
+    */
     
 
 
