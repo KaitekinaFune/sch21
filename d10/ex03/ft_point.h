@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_point.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/20 11:35:36 by lflint            #+#    #+#             */
-/*   Updated: 2020/09/20 11:35:37 by lflint           ###   ########.fr       */
+/*   Created: 2020/09/26 19:48:53 by lflint            #+#    #+#             */
+/*   Updated: 2020/09/26 19:48:55 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(char *s1, char *s2)
+#ifndef FT_POINT_H
+# define FT_POINT_H
+
+typedef struct	s_point
 {
-	while(*s1 != '\0' && *s2 != '\0' && *s1 == *s2)
-	{
-		s1++;
-		s2++;
-	}
-		return ((unsigned char)*s1 - (unsigned char )*s2);
-}
+	int	x;
+	int y;
+}				t_point;
+
+#endif

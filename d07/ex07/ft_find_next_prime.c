@@ -1,21 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/20 11:35:36 by lflint            #+#    #+#             */
-/*   Updated: 2020/09/20 11:35:37 by lflint           ###   ########.fr       */
+/*   Created: 2020/09/23 12:48:27 by lflint            #+#    #+#             */
+/*   Updated: 2020/09/23 12:48:28 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(char *s1, char *s2)
+int		ft_sqrt(int nb)
 {
-	while(*s1 != '\0' && *s2 != '\0' && *s1 == *s2)
+	int i;
+
+	if (nb <= 0)
+		return (0);
+	i = 1;
+	while (i <= (nb / 3))
 	{
-		s1++;
-		s2++;
+		if (i * i == nb)
+			return (1);
+		i++;
 	}
-		return ((unsigned char)*s1 - (unsigned char )*s2);
+	return (0);
+}
+
+int		ft_is_prime(int nb)
+{
+	if (nb <= 1)
+		return (0);
+	if (nb == 2)
+		return (1);
+	if (ft_sqrt(nb) == 1)
+		return (0);
+	if (nb % 2 == 0 || nb % 3 == 0)
+		return (0);
+	return (1);
+}
+
+int ft_find_next_prime(int nb)
+{
+	while (ft_is_prime(nb) != 1)
+		nb ++;
+	return (nb);
 }

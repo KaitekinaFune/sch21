@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_place.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/20 11:35:36 by lflint            #+#    #+#             */
-/*   Updated: 2020/09/20 11:35:37 by lflint           ###   ########.fr       */
+/*   Created: 2020/09/27 20:44:45 by lflint            #+#    #+#             */
+/*   Updated: 2020/09/27 21:03:20 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(char *s1, char *s2)
+#include <stdlib.h>
+
+char	*ft_place(char *str, int i)
 {
-	while(*s1 != '\0' && *s2 != '\0' && *s1 == *s2)
-	{
-		s1++;
-		s2++;
-	}
-		return ((unsigned char)*s1 - (unsigned char )*s2);
+	char *c;
+	int index;
+	int j;
+
+	c = malloc(4 * sizeof(char));
+	index = (((i - 1) * 8) + 2);
+	j = 0;
+	while (j <= 6)
+		c[j++] = str[index++];
+	c[j] = '\0';
+	return (c);
 }

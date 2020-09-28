@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/20 11:35:36 by lflint            #+#    #+#             */
-/*   Updated: 2020/09/20 11:35:37 by lflint           ###   ########.fr       */
+/*   Created: 2020/09/23 13:20:00 by lflint            #+#    #+#             */
+/*   Updated: 2020/09/23 13:20:01 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(char *s1, char *s2)
+#include <unistd.h>
+
+void	ft_putchar(char c)
 {
-	while(*s1 != '\0' && *s2 != '\0' && *s1 == *s2)
+	write(1, &c, 1);
+}
+
+int		main(int argc, char **argv)
+{
+	int i;
+
+	i = 0;
+	if (argc > 0)
 	{
-		s1++;
-		s2++;
+		while (argv[0][i] != '\0')
+		{
+			ft_putchar(argv[0][i]);
+			i++;
+		}
+		ft_putchar('\n');
 	}
-		return ((unsigned char)*s1 - (unsigned char )*s2);
+	return (0);
 }
