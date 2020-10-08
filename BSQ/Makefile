@@ -1,5 +1,5 @@
-SRCS	=	srcs/ft_puterr.c srcs/main.c
-NAME	=	ft_display_file
+SRCS	=	srcs/main.c srcs/print_error.c srcs/map_checks.c srcs/map_assigns.c srcs/build_grid.c srcs/find_solution.c srcs/utils.c
+NAME	=	BSQ
 CFLAGS	=	-Wall -Wextra -Werror
 INCL	=	includes/ft.h	
 CC		=	gcc

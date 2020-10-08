@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_is_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 15:24:29 by lflint            #+#    #+#             */
-/*   Updated: 2020/09/28 15:25:03 by lflint           ###   ########.fr       */
+/*   Created: 2020/09/29 22:32:10 by lflint            #+#    #+#             */
+/*   Updated: 2020/09/29 22:36:13 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft.h"
-
-void	ft_putstr(char *str, char *str2, char *str3, char *str4)
+int		ft_is_sort(int *tab, int length, int (*f)(int, int))
 {
-	while (*str)
-		write(2, str++, 1);
-	while (*str2)
-		write(2, str2++, 1);
-	while (*str3)
-		write(2, str3++, 1);
-	while (*str4)
-		write(2, str4++, 1);
-}
+	int i;
 
-void	ft_putstr2(char *str)
-{
-	while (*str)
-		write(2, str++, 1);
+	i = 0;
+	while (i < (length - 1))
+	{
+		if ((f(tab[i], tab[i + 1]) > 0))
+			return (0);
+		i++;
+	}
+	return (1);
 }

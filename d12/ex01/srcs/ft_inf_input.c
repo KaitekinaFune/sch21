@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_inf_input.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 15:24:29 by lflint            #+#    #+#             */
-/*   Updated: 2020/09/28 15:25:03 by lflint           ###   ########.fr       */
+/*   Created: 2020/09/29 14:27:16 by lflint            #+#    #+#             */
+/*   Updated: 2020/09/29 14:27:31 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft.h"
 
-void	ft_putstr(char *str, char *str2, char *str3, char *str4)
+void	ft_inf_input(void)
 {
-	while (*str)
-		write(2, str++, 1);
-	while (*str2)
-		write(2, str2++, 1);
-	while (*str3)
-		write(2, str3++, 1);
-	while (*str4)
-		write(2, str4++, 1);
-}
+	char	buf[BUF_SIZE];
+	int		ret;
 
-void	ft_putstr2(char *str)
-{
-	while (*str)
-		write(2, str++, 1);
+	while (1 > 0)
+	{
+		ret = read(2, buf, BUF_SIZE);
+		write(1, buf, ret);
+	}
 }

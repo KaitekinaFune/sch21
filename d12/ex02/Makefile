@@ -1,5 +1,5 @@
-SRCS	=	srcs/ft_puterr.c srcs/main.c
-NAME	=	ft_display_file
+SRCS	=	srcs/ft_putstr.c srcs/main.c srcs/ft_display.c srcs/ft_inf_input.c srcs/ft_arrtoint.c
+NAME	=	ft_tail
 CFLAGS	=	-Wall -Wextra -Werror
 INCL	=	includes/ft.h	
 CC		=	gcc

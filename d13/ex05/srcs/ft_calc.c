@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_calc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 15:24:29 by lflint            #+#    #+#             */
-/*   Updated: 2020/09/28 15:25:03 by lflint           ###   ########.fr       */
+/*   Created: 2020/09/30 16:36:16 by lflint            #+#    #+#             */
+/*   Updated: 2020/09/30 16:36:18 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft.h"
 
-void	ft_putstr(char *str, char *str2, char *str3, char *str4)
+int		sum(int a, int b)
 {
-	while (*str)
-		write(2, str++, 1);
-	while (*str2)
-		write(2, str2++, 1);
-	while (*str3)
-		write(2, str3++, 1);
-	while (*str4)
-		write(2, str4++, 1);
+	return (a + b);
 }
 
-void	ft_putstr2(char *str)
+int		sub(int a, int b)
 {
-	while (*str)
-		write(2, str++, 1);
+	return (a - b);
+}
+
+int		mul(int a, int b)
+{
+	int i;
+
+	i = a * b;
+	return (i);
+}
+
+int		div(int a, int b)
+{
+	return (a / b);
+}
+
+int		mod(int a, int b)
+{
+	return (a % b);
 }

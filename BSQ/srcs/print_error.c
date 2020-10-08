@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_file.c                                  :+:      :+:    :+:   */
+/*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: bgoose <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 13:16:12 by lflint            #+#    #+#             */
-/*   Updated: 2020/09/28 15:28:36 by lflint           ###   ########.fr       */
+/*   Created: 2020/10/07 23:14:16 by bgoose            #+#    #+#             */
+/*   Updated: 2020/10/07 23:14:19 by bgoose           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft.h"
 
-int		main(int argc, char **argv)
+int		print_error(void)
 {
-	if (argc < 2)
-		ft_inf_input();
-	else
-		ft_display(argc, argv);
-	return (0);
+	write(2, "map error\n", 10);
+	return (1);
 }

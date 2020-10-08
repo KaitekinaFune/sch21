@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 15:24:29 by lflint            #+#    #+#             */
-/*   Updated: 2020/09/28 15:25:03 by lflint           ###   ########.fr       */
+/*   Created: 2020/09/30 16:36:21 by lflint            #+#    #+#             */
+/*   Updated: 2020/09/30 16:36:22 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft.h"
 
-void	ft_putstr(char *str, char *str2, char *str3, char *str4)
+int		ft_error(int n)
 {
-	while (*str)
-		write(2, str++, 1);
-	while (*str2)
-		write(2, str2++, 1);
-	while (*str3)
-		write(2, str3++, 1);
-	while (*str4)
-		write(2, str4++, 1);
-}
-
-void	ft_putstr2(char *str)
-{
-	while (*str)
-		write(2, str++, 1);
+	if (n == 0)
+	{		
+	write(2, "0\n", 2);
+		return (1);
+	}
+	write(2, "Stop : ", 7);
+	if (n == 1)
+		write(2, "division by zero\n", 17);
+	else if (n == 2)
+		write(2, "modulo by zero\n", 15);
+	return (1);
 }

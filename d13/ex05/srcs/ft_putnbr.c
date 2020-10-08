@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 15:24:29 by lflint            #+#    #+#             */
-/*   Updated: 2020/09/28 15:25:03 by lflint           ###   ########.fr       */
+/*   Created: 2020/09/30 16:36:27 by lflint            #+#    #+#             */
+/*   Updated: 2020/09/30 16:36:27 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft.h"
 
-void	ft_putstr(char *str, char *str2, char *str3, char *str4)
+void	ft_putchar(char c)
 {
-	while (*str)
-		write(2, str++, 1);
-	while (*str2)
-		write(2, str2++, 1);
-	while (*str3)
-		write(2, str3++, 1);
-	while (*str4)
-		write(2, str4++, 1);
+	write(1, &c, 1);
 }
 
-void	ft_putstr2(char *str)
+void	ft_putnbr(int nb)
 {
-	while (*str)
-		write(2, str++, 1);
+	if (nb == -2147483648)
+	{
+		ft_putnbr(nb /= 10);
+		ft_putchar('8');
+		return ;
+	}
+	if (nb < 0)
+	{
+		nb = -(nb);
+		ft_putchar('-');
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		ft_putchar((nb % 10) + 48);
+	}
+	if (nb < 10)
+		ft_putchar(nb + 48);
 }

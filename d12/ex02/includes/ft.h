@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 15:24:29 by lflint            #+#    #+#             */
-/*   Updated: 2020/09/28 15:25:03 by lflint           ###   ########.fr       */
+/*   Created: 2020/09/28 13:20:10 by lflint            #+#    #+#             */
+/*   Updated: 2020/09/29 14:28:12 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft.h"
+#ifndef FT_H
+# define FT_H
 
-void	ft_putstr(char *str, char *str2, char *str3, char *str4)
-{
-	while (*str)
-		write(2, str++, 1);
-	while (*str2)
-		write(2, str2++, 1);
-	while (*str3)
-		write(2, str3++, 1);
-	while (*str4)
-		write(2, str4++, 1);
-}
+# define BUF_SIZE 28672
 
-void	ft_putstr2(char *str)
-{
-	while (*str)
-		write(2, str++, 1);
-}
+# include <unistd.h>
+# include <libgen.h>
+# include <fcntl.h>
+# include <errno.h>
+# include <string.h>
+
+void	ft_putstr(char *str, char *str2, char *str3, char *str4);
+void	ft_putstr2(char *str);
+int		ft_arrtoint(char *str);
+void	ft_display(int argc, char **argv);
+void	ft_inf_input(void);
+
+
+#endif

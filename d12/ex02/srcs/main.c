@@ -1,30 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft.h                                               :+:      :+:    :+:   */
+/*   ft_display_file.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 13:20:10 by lflint            #+#    #+#             */
-/*   Updated: 2020/09/29 14:28:12 by lflint           ###   ########.fr       */
+/*   Created: 2020/09/28 13:16:12 by lflint            #+#    #+#             */
+/*   Updated: 2020/09/28 15:28:36 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#ifndef FT_H
-# define FT_H
-
-# define BUF_SIZE 28672
 
 # include <unistd.h>
 # include <libgen.h>
 # include <fcntl.h>
 # include <errno.h>
 # include <string.h>
+# include <stdlib.h>
 
-void	ft_putstr(char *str, char *str2, char *str3, char *str4);
-void	ft_putstr2(char *str);
-void	ft_putchar(char c);
-void	ft_display(int argc, char **argv);
-void	ft_inf_input(void);
+int		ft_arrtoint(char *str)
+{
+	int num;
 
-#endif
+	num = 0;
+	while (*str >= '0' && *str <= '9')
+	{
+		num = 10 * num + (*str - 48);
+		str++;
+	}
+	return (num);
+}
+
+int		main(int argc, char **argv)
+{
+	int n;
+	int fd;
+	char *buf;
+	int ret;
+	
+	(void)argc;
+	n = ft_arrtoint(argv[2]);
+	buf = malloc(n * sizeof(char));
+	fd = open(argv[3], O_RDWR);
+
+	ret = read(fd, buf, n);
+	write(1, &buf[ret-n], ret-n);
+	return (0);
+}

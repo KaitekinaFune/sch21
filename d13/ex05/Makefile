@@ -1,5 +1,5 @@
-SRCS	=	srcs/ft_puterr.c srcs/main.c
-NAME	=	ft_display_file
+SRCS	=	srcs/ft_error.c srcs/main.c srcs/ft_calc.c srcs/ft_atoi.c srcs/ft_putnbr.c
+NAME	=	do-op
 CFLAGS	=	-Wall -Wextra -Werror
 INCL	=	includes/ft.h	
 CC		=	gcc

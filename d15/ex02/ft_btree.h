@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_btree.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 15:24:29 by lflint            #+#    #+#             */
-/*   Updated: 2020/09/28 15:25:03 by lflint           ###   ########.fr       */
+/*   Created: 2020/10/02 21:55:19 by lflint            #+#    #+#             */
+/*   Updated: 2020/10/02 21:55:21 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft.h"
+#ifndef FT_BTREE_H
+# define FT_BTREE_H
 
-void	ft_putstr(char *str, char *str2, char *str3, char *str4)
-{
-	while (*str)
-		write(2, str++, 1);
-	while (*str2)
-		write(2, str2++, 1);
-	while (*str3)
-		write(2, str3++, 1);
-	while (*str4)
-		write(2, str4++, 1);
-}
+# include <stdlib.h>
 
-void	ft_putstr2(char *str)
+typedef struct		s_btree
 {
-	while (*str)
-		write(2, str++, 1);
-}
+	struct s_btree	*left;
+	struct s_btree	*right;
+	void			*item;
+}					t_btree;
+
+t_btree				*btree_create_node(void *item);
+
+#endif

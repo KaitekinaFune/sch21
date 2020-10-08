@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 15:24:29 by lflint            #+#    #+#             */
-/*   Updated: 2020/09/28 15:25:03 by lflint           ###   ########.fr       */
+/*   Created: 2020/10/03 11:47:40 by lflint            #+#    #+#             */
+/*   Updated: 2020/10/03 11:47:41 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft.h"
+#ifndef FT_H
+# define FT_H
+# define DIR "numbers.dict"
+# define BUF_SIZE 28672
 
-void	ft_putstr(char *str, char *str2, char *str3, char *str4)
-{
-	while (*str)
-		write(2, str++, 1);
-	while (*str2)
-		write(2, str2++, 1);
-	while (*str3)
-		write(2, str3++, 1);
-	while (*str4)
-		write(2, str4++, 1);
-}
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
 
-void	ft_putstr2(char *str)
-{
-	while (*str)
-		write(2, str++, 1);
-}
+int		dir_parse(int i);
+int		ft_strlen(char *str);
+char	*ft_filetostr(int fd);
+//int		ft_valid(char *str);
+
+#endif

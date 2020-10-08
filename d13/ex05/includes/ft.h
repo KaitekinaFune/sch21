@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 15:24:29 by lflint            #+#    #+#             */
-/*   Updated: 2020/09/28 15:25:03 by lflint           ###   ########.fr       */
+/*   Created: 2020/09/28 13:20:10 by lflint            #+#    #+#             */
+/*   Updated: 2020/09/30 16:36:00 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft.h"
+#ifndef FT_H
+# define FT_H
 
-void	ft_putstr(char *str, char *str2, char *str3, char *str4)
-{
-	while (*str)
-		write(2, str++, 1);
-	while (*str2)
-		write(2, str2++, 1);
-	while (*str3)
-		write(2, str3++, 1);
-	while (*str4)
-		write(2, str4++, 1);
-}
+# include <unistd.h>
 
-void	ft_putstr2(char *str)
-{
-	while (*str)
-		write(2, str++, 1);
-}
+int		sum(int a, int b);
+int		sub(int a, int b);
+int		mul(int a, int b);
+int		div(int a, int b);
+int		mod(int a, int b);
+int		ft_atoi(char *str);
+int		ft_arrtoint(int arr[], int size);
+int		ft_error(int n);
+void	ft_putnbr(int nb);
+void	ft_putchar(char c);
+
+#endif

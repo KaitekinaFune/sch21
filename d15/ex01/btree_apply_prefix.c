@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   btree_apply_prefix.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 15:24:29 by lflint            #+#    #+#             */
-/*   Updated: 2020/09/28 15:25:03 by lflint           ###   ########.fr       */
+/*   Created: 2020/10/02 21:54:58 by lflint            #+#    #+#             */
+/*   Updated: 2020/10/02 21:54:58 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft.h"
+#include "ft_btree.h"
 
-void	ft_putstr(char *str, char *str2, char *str3, char *str4)
+void	btree_apply_prefix(t_btree *root, void (*applyf)(void *))
 {
-	while (*str)
-		write(2, str++, 1);
-	while (*str2)
-		write(2, str2++, 1);
-	while (*str3)
-		write(2, str3++, 1);
-	while (*str4)
-		write(2, str4++, 1);
-}
-
-void	ft_putstr2(char *str)
-{
-	while (*str)
-		write(2, str++, 1);
+	applyf(root->item);
+	if (root->left != NULL)
+		btree_apply_prefix(root->left, applyf);
+	if (root->right != NULL)
+		btree_apply_prefix(root->right, applyf);
 }

@@ -1,4 +1,4 @@
-SRCS	=	srcs/ft_putchar.c srcs/ft_putstr.c srcs/main.c
+SRCS	=	srcs/ft_putstr.c srcs/main.c srcs/ft_display.c srcs/ft_inf_input.c
 NAME	=	ft_cat
 CFLAGS	=	-Wall -Wextra -Werror
 INCL	=	includes/ft.h	
@@ -19,3 +19,4 @@ clean:
 
 fclean:		clean		
 			$(RM) $(NAME)
+re:			fclean all

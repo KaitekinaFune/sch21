@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   btree_create_node.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 15:24:29 by lflint            #+#    #+#             */
-/*   Updated: 2020/09/28 15:25:03 by lflint           ###   ########.fr       */
+/*   Created: 2020/10/02 21:54:53 by lflint            #+#    #+#             */
+/*   Updated: 2020/10/02 21:54:54 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft.h"
+#include "ft_btree.h"
 
-void	ft_putstr(char *str, char *str2, char *str3, char *str4)
+t_btree	*btree_create_node(void *item)
 {
-	while (*str)
-		write(2, str++, 1);
-	while (*str2)
-		write(2, str2++, 1);
-	while (*str3)
-		write(2, str3++, 1);
-	while (*str4)
-		write(2, str4++, 1);
-}
+	t_btree *temp;
 
-void	ft_putstr2(char *str)
-{
-	while (*str)
-		write(2, str++, 1);
+	temp = malloc(sizeof(t_btree));
+	temp->item = item;
+	temp->left = NULL;
+	temp->right = NULL;
+	return (temp);
 }
