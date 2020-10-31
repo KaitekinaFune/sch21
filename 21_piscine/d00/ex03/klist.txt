@@ -1,0 +1,5 @@
+Credentials cache: API:524617D8-16C2-E38D-2403-FC06095E4600
+        Principal: lflint@KZN.21-SCHOOL.RU
+
+  Issued                Expires               Principal
+Sep 14 16:07:33 2020  Sep 15 02:07:33 2020  krbtgt/KZN.21-SCHOOL.RU@KZN.21-SCHOOL.RU
