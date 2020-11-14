@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   pf_format_uint.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/14 17:20:48 by lflint            #+#    #+#             */
-/*   Updated: 2020/11/14 18:25:26 by lflint           ###   ########.fr       */
+/*   Created: 2020/11/14 17:20:06 by lflint            #+#    #+#             */
+/*   Updated: 2020/11/14 18:34:30 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+char	*pf_format_uint(t_flags *flags)
 {
-	t_flags flags;
+	unsigned int	decimal;
+	char			*itoa;
 
-	flags.format = format;
-	flags.count = 0;
-	va_start(flags.args, format);
-	pf_handle(&flags);
-	va_end(flags.args);
-	return (flags.count);
+	decimal = va_arg(flags->args, unsigned int);
+	if (pf_int_should_be_empty(decimal == 0, flags))
+		return (ft_emptystr());
+	itoa = ft_itoa_u_base(decimal, PF_DECIMAL);
+	if (itoa && flags->precision_enabled)
+		return (pf_put_poops(flags, itoa, 0, 0));
+	return (itoa);
 }

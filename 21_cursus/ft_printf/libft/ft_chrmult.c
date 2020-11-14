@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_chrmult.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/14 17:20:48 by lflint            #+#    #+#             */
-/*   Updated: 2020/11/14 18:25:26 by lflint           ###   ########.fr       */
+/*   Created: 2020/11/14 17:25:31 by lflint            #+#    #+#             */
+/*   Updated: 2020/11/14 17:25:36 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...)
+char	*ft_chrmult(char c, size_t times)
 {
-	t_flags flags;
+	char	*str;
 
-	flags.format = format;
-	flags.count = 0;
-	va_start(flags.args, format);
-	pf_handle(&flags);
-	va_end(flags.args);
-	return (flags.count);
+	if (!(str = malloc((times + 1) * sizeof(char))))
+		return (NULL);
+	ft_memset(str, c, times);
+	str[times] = '\0';
+	return (str);
 }

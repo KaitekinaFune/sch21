@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   pf_format_percent.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/14 17:20:48 by lflint            #+#    #+#             */
-/*   Updated: 2020/11/14 18:25:26 by lflint           ###   ########.fr       */
+/*   Created: 2020/11/14 17:19:59 by lflint            #+#    #+#             */
+/*   Updated: 2020/11/14 18:34:02 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+char	*pf_format_percent(t_flags *flags)
 {
-	t_flags flags;
-
-	flags.format = format;
-	flags.count = 0;
-	va_start(flags.args, format);
-	pf_handle(&flags);
-	va_end(flags.args);
-	return (flags.count);
+	(void)flags;
+	return (ft_chrtostr('%'));
 }

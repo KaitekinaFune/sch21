@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   pf_handler.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lflint <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/14 17:20:48 by lflint            #+#    #+#             */
-/*   Updated: 2020/11/14 18:25:26 by lflint           ###   ########.fr       */
+/*   Created: 2020/11/14 17:20:52 by lflint            #+#    #+#             */
+/*   Updated: 2020/11/14 17:23:40 by lflint           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+void	pf_handle(t_flags *flags)
 {
-	t_flags flags;
+	size_t			index;
+	unsigned char	current;
 
-	flags.format = format;
-	flags.count = 0;
-	va_start(flags.args, format);
-	pf_handle(&flags);
-	va_end(flags.args);
-	return (flags.count);
+	flags->done = 0;
+	index = 0;
+	while ((current = flags->format[index]) && !flags->done)
+	{
+		index++;
+		if (current != '%')
+			pf_putchar(flags, (char)current);
+		else
+			pf_format(flags, &index);
+	}
 }
